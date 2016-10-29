@@ -7,7 +7,7 @@
     LunchCheckController.$inject = ['$scope'];
     function LunchCheckController($scope) {
         $scope.lunchDishes = "";
-        $scope.commentMsg = "Initial Comment!";
+        $scope.commentMsg = "Initial Comment! Find out how big is your lunch :)";
         $scope.customStyle = {};
         $scope.inputLunchStyle = {}
 
