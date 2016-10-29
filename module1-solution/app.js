@@ -38,7 +38,7 @@
         function removeEmptyElements(elements) {
             var sanitizedElements = []
             for(var i = 0; i < elements.length; i++) {
-                if(elements[i] != "") {
+                if(elements[i].trim() != "") {
                     sanitizedElements.push(elements[i]);
                 }                
             }
