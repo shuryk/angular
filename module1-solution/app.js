@@ -28,7 +28,7 @@
                 $scope.customStyle.colorClass = "green";
                 $scope.inputLunchStyle = "ok-input-border"
             }
-            else if (elements.length > 3) {
+            else {
                 $scope.commentMsg = "Too much!";
                 $scope.customStyle.colorClass = "green"; 
                 $scope.inputLunchStyle = "ok-input-border"
