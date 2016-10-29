@@ -6,9 +6,10 @@
 
     LunchCheckController.$inject = ['$scope'];
     function LunchCheckController($scope) {
-
         $scope.lunchDishes = "";
         $scope.commentMsg = "Initial Comment!";
+        $scope.customStyle = {};
+        $scope.inputLunchStyle = {}
 
         $scope.checkIfTooMuch = function() {
             var elements = removeEmptyElements( $scope.lunchDishes.split(','));
@@ -19,13 +20,18 @@
 
             if (elements.length == 0 ) {
                 $scope.commentMsg = "Please enter data first";
+                $scope.customStyle.colorClass = "red";
+                $scope.inputLunchStyle = "error-input-border"
             }
             else if (elements.length <= 3) {
                 $scope.commentMsg = "Enjoy";
+                $scope.customStyle.colorClass = "green";
+                $scope.inputLunchStyle = "ok-input-border"
             }
             else if (elements.length > 3) {
-
-                $scope.commentMsg = "Too much!"; 
+                $scope.commentMsg = "Too much!";
+                $scope.customStyle.colorClass = "green"; 
+                $scope.inputLunchStyle = "ok-input-border"
             }
         }
 
