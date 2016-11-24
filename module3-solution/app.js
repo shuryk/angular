@@ -48,7 +48,7 @@
                     console.log("description", response.data.menu_items[i].description);
 
                     var description = response.data.menu_items[i].description;
-                    if ((searchTerm != undefined && searchTerm != "") && description.indexOf(searchTerm) !== -1 ) {
+                    if ((searchTerm != undefined && searchTerm != "") && description.toLowerCase().indexOf(searchTerm) !== -1 ) {
                         foundItems.push(response.data.menu_items[i]);
                     }
                 }
