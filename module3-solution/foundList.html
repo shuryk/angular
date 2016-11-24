@@ -1,11 +1,28 @@
-<ol>
+<div class="container-fluid col-lg-12">
+  <div class="table-responsive" ng-if="menu.foundItems.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ShortName</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Action</th>
 
-  <li ng-repeat="item in menu.foundItems">
-    
-    {{menu.foundItem}}
-    Name: {{ item.name }}
-    Description: {{ item.description }}
-    <button ng-click="menu.onRemove({index: $index});">Remove Item</button>
-  </li>
-</ol>
-
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in menu.foundItems | orderBy : short_name">
+          <td> {{$index}}</td>
+          <td>{{ item.short_name }}</td>
+          <td> {{ item.name }}</td>
+          <td> {{ item.description }}</td>
+          <td><button ng-click="menu.onRemove({index: $index});" class="btn btn-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i> Don't want this one! </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h3 ng-if="menu.foundItems.length == 0"> Nothing found! </h3>
+  </div>
+</div>

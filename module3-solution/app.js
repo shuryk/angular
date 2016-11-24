@@ -48,14 +48,10 @@
                     console.log("description", response.data.menu_items[i].description);
 
                     var description = response.data.menu_items[i].description;
-                    if (searchTerm != undefined && description.indexOf(searchTerm) !== -1 ) {
+                    if ((searchTerm != undefined && searchTerm != "") && description.indexOf(searchTerm) !== -1 ) {
                         foundItems.push(response.data.menu_items[i]);
                     }
                 }
-
-
-
-
 
                 // return processed items
                 return foundItems;
@@ -69,11 +65,6 @@
     function NarrowItDownController(MenuSearchService) {
         var menu = this;
 
-        MenuSearchService.getMatchedMenuItems().then(function (response) {
-            console.log(response.data);
-            menu.found = response.data;
-        })
-
         menu.getMenut = function (searchTerm) {
             MenuSearchService.getMatchedMenuItems(searchTerm).then(function (response) {
                 console.log(response);
@@ -82,6 +73,10 @@
 
                 console.log("FOUND", menu.found);
             })
+        }
+
+        menu.removeItem = function(index) {
+            menu.found.splice(index, 1);
         }
 
 
